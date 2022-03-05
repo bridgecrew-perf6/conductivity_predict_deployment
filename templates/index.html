@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Recycled Water Conductivity Predictor</title>
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="shortcut icon" href="#">
+</head>
+<body>
+<div >
+    <h1>This machine learning model predicts the conductivity of recycled water based on the parameters below</h1>
+
+    <h3>Multivariable Linear Regression model was selected to develop this machine learning model. </h3>
+
+    <h3>The dataset used to develop this model contains 1,000 measurements from IoT sensors for seven water quality metrics.</h3>
+    <h4>The Root Mean Squared Error for this model is 28.8 µmhos/cm </h4>
+
+
+    <h9><strong>Note!:</strong> This is a demo project and the authenticity of the data used to build this model has not been verified.
+    Therefore, do not utilize this model for any other application</h9>
+    <hr>
+      <form action="{{ url_for('predict')}}" method="post">
+          <label for="Temperature (C)">Temperature (C)(typical range 28.0 - 38.8) </label>
+    	<input type="number" id="Temperature (C)" step="any" name="Temperature (C)" placeholder="Temperature" required="required" /> <br>
+          <label for="pH"> pH (typical range 6.8 - 8.2 ) </label>
+        <input type="number" step="any" id="pH" name="pH" placeholder="pH" required="required" /><br>
+          <label for="Turbidity (NTU)">Turbidity (NTU) (typical range 42 - 51)</label>
+		<input type="number" step="any" id="Turbidity (NTU)" name="Turbidity (NTU)" placeholder="Turbidity" required="required" /><br>
+          <label for="BOD (mg/l)">BOD (mg/L) (typical range 30 - 51) </label>
+        <input type="number" step="any" id="BOD (mg/l)" name="BOD (mg/l)" placeholder="BOD" required="required" /><br>
+          <label for=" Fecal Coliform (MPN/100ml)">Fecal Coliform (MPN/100ml) (typical range 4,700 - 5600) </label>
+        <input type="number" step="any" id=" Fecal Coliform (MPN/100ml)" name="	Fecal Coliform (MPN/100ml)" placeholder=" Fecal Coliform" required="required" /><br>
+          <label for="Disolved Oxygen (mg/l)">Disolved Oxygen (mg/L) (typical range 3.0 - 4.0) </label>
+        <input type="number" step="any" id="Disolved Oxygen (mg/l)" name="Disolved Oxygen (mg/l)" placeholder="Disolved Oxygen" required="required" /><br>
+          <label for="NITRATENAN N+ NITRITENANN (mg/l)">Nitrate+Nitrite-N (mg/L) (typical range 0.1 - 0.3) </label>
+        <input type="number" step="any" id="NITRATENAN N+ NITRITENANN (mg/l)" name="NITRATENAN N+ NITRITENANN (mg/l)" placeholder="Nitrate+Nitrite-N " required="required" /><br>
+
+
+
+
+        <button type="submit" >Predict</button>
+    </form>
+    <br>
+
+    <h2>The Electrical Energy Output is : </h2>
+    <h1>   {{ final }} µmhos/cm </h1>
+
+
+</div>
+</body>
+</html>
